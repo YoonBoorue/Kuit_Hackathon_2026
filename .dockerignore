@@ -1,0 +1,14 @@
+.git
+.github
+.gradle
+build
+out
+target
+.idea
+.vscode
+*.iml
+*.log
+logs
+.env
+.env.*
+.DS_Store
