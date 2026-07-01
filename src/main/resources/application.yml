@@ -1,0 +1,29 @@
+server:
+  port: ${SERVER_PORT:8080}
+
+spring:
+  application:
+    name: kuit-hackathon-2026
+
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/hackathon_db}
+    username: ${SPRING_DATASOURCE_USERNAME:appuser}
+    password: ${SPRING_DATASOURCE_PASSWORD:}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
+    tags-sorter: alpha
+    display-request-duration: true
