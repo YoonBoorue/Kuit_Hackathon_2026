@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM eclipse-temurin:17-jdk AS builder
+FROM eclipse-temurin:21-jdk AS builder
 WORKDIR /app
 
 COPY gradlew ./
@@ -11,7 +11,7 @@ COPY src ./src
 RUN chmod +x ./gradlew
 RUN ./gradlew clean bootJar -x test --no-daemon
 
-FROM eclipse-temurin:17-jre
+FROM eclipse-temurin:21-jre
 WORKDIR /app
 
 ENV TZ=Asia/Seoul
