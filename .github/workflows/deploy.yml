@@ -64,12 +64,17 @@ jobs:
           SPRING_PROFILES_ACTIVE: ${{ env.SPRING_PROFILES_ACTIVE }}
           ENV_FILE: ${{ env.ENV_FILE }}
         run: |
-          mkdir -p ~/.ssh
-          echo "$EC2_SSH_KEY" > ~/.ssh/ec2_key
-          chmod 600 ~/.ssh/ec2_key
-          ssh-keyscan -H "$EC2_HOST" >> ~/.ssh/known_hosts
+          set -e
 
-          ssh -i ~/.ssh/ec2_key "$EC2_USER@$EC2_HOST" \
+          mkdir -p ~/.ssh
+          printf '%s\n' "$EC2_SSH_KEY" > ~/.ssh/ec2_key
+          chmod 600 ~/.ssh/ec2_key
+
+          echo "Checking SSH connection..."
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/ec2_key "$EC2_USER@$EC2_HOST" "echo 'SSH OK'; hostname; whoami"
+
+          echo "Running deploy script..."
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/ec2_key "$EC2_USER@$EC2_HOST" \
             "IMAGE='$IMAGE' \
              GHCR_USERNAME='$GHCR_USERNAME' \
              GHCR_TOKEN='$GHCR_TOKEN' \
