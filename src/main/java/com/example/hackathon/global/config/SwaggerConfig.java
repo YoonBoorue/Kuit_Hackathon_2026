@@ -1,4 +1,4 @@
-package com.example.hackathon.summer_plan.global.config;
+package com.example.hackathon.global.config;
 
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Contact;
