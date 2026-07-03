@@ -4,6 +4,7 @@ import com.example.hackathon.domain.card.controller.dto.SurvivalCardDtos.CardEff
 import com.example.hackathon.domain.card.controller.dto.SurvivalCardDtos.PrimaryEffectResponse;
 import com.example.hackathon.domain.draw.entity.MysteryDrawStatus;
 import jakarta.validation.constraints.NotNull;
+import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 import java.util.List;
 
@@ -52,7 +53,7 @@ public final class MysteryDrawDtos {
             String authorNickname,
             PrimaryEffectResponse primaryEffect,
             List<CardEffectResponse> effects,
-            OffsetDateTime createdAt
+            LocalDateTime createdAt
     ) {
     }
 }

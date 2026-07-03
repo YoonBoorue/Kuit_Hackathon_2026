@@ -5,6 +5,7 @@ import com.example.hackathon.domain.card.controller.dto.SurvivalCardDtos.Primary
 import com.example.hackathon.domain.collection.entity.CollectionSource;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 import java.util.List;
 
@@ -43,7 +44,7 @@ public final class CollectionCardDtos {
             String authorNickname,
             PrimaryEffectResponse primaryEffect,
             List<CardEffectResponse> effects,
-            OffsetDateTime cardCreatedAt,
+            LocalDateTime cardCreatedAt,
             OffsetDateTime collectedAt
     ) {
     }
