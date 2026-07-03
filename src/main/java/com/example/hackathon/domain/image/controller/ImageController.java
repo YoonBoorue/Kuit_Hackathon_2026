@@ -5,6 +5,7 @@ import com.example.hackathon.domain.image.service.ImageUploadService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -15,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Tag(name = "이미지", description = "카드 이미지 파일을 백엔드 multipart 방식으로 S3에 업로드하는 API")
 @RestController
+@ConditionalOnProperty(prefix = "app.image", name = "enabled", havingValue = "true")
 @RequestMapping("/api/images")
 public class ImageController {
 

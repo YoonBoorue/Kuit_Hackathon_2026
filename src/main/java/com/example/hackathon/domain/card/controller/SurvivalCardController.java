@@ -63,7 +63,7 @@ public class SurvivalCardController {
         return survivalCardService.getCard(cardId);
     }
 
-    @Operation(summary = "카드 이미지 변경", description = "프론트에서 업로드하거나 확보한 이미지 URL을 카드에 매핑합니다. 빈 값이면 카드 이미지 매핑을 제거합니다.")
+    @Operation(hidden = true)
     @PutMapping("/{cardId}/image")
     public UpdateCardImageResponse updateCardImage(
             @Parameter(description = "프론트에서 보관하는 임시 사용자 ID", required = true)

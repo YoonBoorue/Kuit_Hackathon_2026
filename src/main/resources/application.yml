@@ -48,6 +48,7 @@ app:
       model: ${GEMINI_MODEL:gemini-3.5-flash}
       timeout-ms: ${GEMINI_TIMEOUT_MS:10000}
   image:
+    enabled: ${IMAGE_FEATURE_ENABLED:false}
     s3:
       bucket: ${IMAGE_S3_BUCKET:summer-survival-mail-images-1}
       region: ${IMAGE_S3_REGION:ap-northeast-2}

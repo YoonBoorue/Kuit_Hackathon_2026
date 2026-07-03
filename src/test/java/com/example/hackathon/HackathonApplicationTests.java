@@ -1,14 +1,20 @@
 package com.example.hackathon;
 
+import com.example.hackathon.domain.card.controller.SurvivalCardController;
+import com.example.hackathon.domain.image.controller.ImageController;
 import com.example.hackathon.domain.user.dto.UserDtos.CreateUserRequest;
 import com.example.hackathon.domain.user.dto.UserDtos.UserResponse;
 import com.example.hackathon.domain.user.service.UserService;
 import com.example.hackathon.global.exception.ErrorResponse;
 import com.example.hackathon.global.exception.GlobalExceptionHandler;
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.servlet.http.HttpServletRequest;
+import java.lang.reflect.Method;
+import java.util.Arrays;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.ApplicationContext;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 
@@ -24,6 +30,9 @@ class HackathonApplicationTests {
 
     @Autowired
     private GlobalExceptionHandler globalExceptionHandler;
+
+    @Autowired
+    private ApplicationContext applicationContext;
 
     @Test
     void contextLoads() {
@@ -63,6 +72,20 @@ class HackathonApplicationTests {
         assertThat(response.getStatusCode().value()).isEqualTo(500);
         assertThat(response.getBody()).isNotNull();
         assertThat(response.getBody().status()).isEqualTo(500);
+    }
+
+    @Test
+    void imageApisAreDisabledAndHiddenFromOpenApi() {
+        assertThat(applicationContext.getBeansOfType(ImageController.class)).isEmpty();
+
+        Method updateImageMethod = Arrays.stream(SurvivalCardController.class.getDeclaredMethods())
+                .filter(method -> method.getName().equals("updateCardImage"))
+                .findFirst()
+                .orElseThrow();
+        Operation operation = updateImageMethod.getAnnotation(Operation.class);
+
+        assertThat(operation).isNotNull();
+        assertThat(operation.hidden()).isTrue();
     }
 
 }
