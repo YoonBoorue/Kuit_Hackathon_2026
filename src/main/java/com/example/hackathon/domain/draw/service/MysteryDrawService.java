@@ -190,6 +190,7 @@ public class MysteryDrawService {
                 card.getDescription(),
                 card.getRecommendedSituation(),
                 card.getDifficulty(),
+                card.getImageUrl(),
                 resolveReceivedMessage(collectionCard),
                 card.getAuthorUser().getId(),
                 card.getAuthorUser().getNickname(),

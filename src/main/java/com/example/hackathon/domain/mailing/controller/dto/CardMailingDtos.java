@@ -30,6 +30,7 @@ public final class CardMailingDtos {
     public record CardMailingResponse(
             Long mailingId,
             Long cardId,
+            String imageUrl,
             String message,
             MailingStatus status,
             OffsetDateTime sentAt,

@@ -18,7 +18,8 @@ public final class CardExchangeDtos {
 
     public record SentCardResponse(
             Long cardId,
-            String title
+            String title,
+            String imageUrl
     ) {
     }
 
@@ -29,6 +30,7 @@ public final class CardExchangeDtos {
             String description,
             String recommendedSituation,
             Short difficulty,
+            String imageUrl,
             PrimaryEffectResponse primaryEffect
     ) {
     }

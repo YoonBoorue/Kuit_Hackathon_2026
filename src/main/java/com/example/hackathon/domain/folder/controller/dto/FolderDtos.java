@@ -56,6 +56,7 @@ public final class FolderDtos {
             Long cardId,
             String title,
             String description,
+            String imageUrl,
             PrimaryEffectResponse primaryEffect
     ) {
     }

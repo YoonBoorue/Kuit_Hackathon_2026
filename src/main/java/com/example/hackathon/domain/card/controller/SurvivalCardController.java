@@ -3,6 +3,8 @@ package com.example.hackathon.domain.card.controller;
 import com.example.hackathon.domain.card.controller.dto.SurvivalCardDtos.CreateSurvivalCardRequest;
 import com.example.hackathon.domain.card.controller.dto.SurvivalCardDtos.CreateSurvivalCardResponse;
 import com.example.hackathon.domain.card.controller.dto.SurvivalCardDtos.SurvivalCardResponse;
+import com.example.hackathon.domain.card.controller.dto.SurvivalCardDtos.UpdateCardImageRequest;
+import com.example.hackathon.domain.card.controller.dto.SurvivalCardDtos.UpdateCardImageResponse;
 import com.example.hackathon.domain.card.entity.CardStatus;
 import com.example.hackathon.domain.card.service.SurvivalCardService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -13,6 +15,7 @@ import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -58,5 +61,17 @@ public class SurvivalCardController {
             @PathVariable Long cardId
     ) {
         return survivalCardService.getCard(cardId);
+    }
+
+    @Operation(summary = "카드 이미지 변경", description = "프론트에서 업로드하거나 확보한 이미지 URL을 카드에 매핑합니다. 빈 값이면 카드 이미지 매핑을 제거합니다.")
+    @PutMapping("/{cardId}/image")
+    public UpdateCardImageResponse updateCardImage(
+            @Parameter(description = "프론트에서 보관하는 임시 사용자 ID", required = true)
+            @RequestHeader("X-USER-ID") Long userId,
+            @Parameter(description = "이미지를 변경할 생존 카드 ID", required = true)
+            @PathVariable Long cardId,
+            @Valid @RequestBody UpdateCardImageRequest request
+    ) {
+        return survivalCardService.updateCardImage(userId, cardId, request);
     }
 }

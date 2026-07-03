@@ -37,6 +37,12 @@ public final class SurvivalCardDtos {
             @NotNull(message = "대표 효과 유형 ID는 필수입니다.")
             Long primaryEffectTypeId,
 
+            @Size(max = 500, message = "카드 이미지 URL은 500자 이하여야 합니다.")
+            String imageUrl,
+
+            @Size(max = 500, message = "카드 이미지 key는 500자 이하여야 합니다.")
+            String imageKey,
+
             @Valid
             @NotEmpty(message = "카드 효과는 1개 이상이어야 합니다.")
             @Size(max = 3, message = "카드 효과는 최대 3개까지 가능합니다.")
@@ -78,6 +84,23 @@ public final class SurvivalCardDtos {
     ) {
     }
 
+    public record UpdateCardImageRequest(
+            @Size(max = 500, message = "카드 이미지 URL은 500자 이하여야 합니다.")
+            String imageUrl,
+
+            @Size(max = 500, message = "카드 이미지 key는 500자 이하여야 합니다.")
+            String imageKey
+    ) {
+    }
+
+    public record UpdateCardImageResponse(
+            Long cardId,
+            String imageUrl,
+            String imageKey,
+            String message
+    ) {
+    }
+
     public record PrimaryEffectResponse(
             Long effectTypeId,
             String name,
@@ -99,6 +122,7 @@ public final class SurvivalCardDtos {
             String description,
             String recommendedSituation,
             Short difficulty,
+            String imageUrl,
             CardStatus status,
             PrimaryEffectResponse primaryEffect,
             List<CardEffectResponse> effects,

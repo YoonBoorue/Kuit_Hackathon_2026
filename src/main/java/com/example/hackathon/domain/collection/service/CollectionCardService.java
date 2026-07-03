@@ -100,6 +100,7 @@ public class CollectionCardService {
                 card.getDescription(),
                 card.getRecommendedSituation(),
                 card.getDifficulty(),
+                card.getImageUrl(),
                 resolveMessage(collectionCard),
                 card.getAuthorUser().getId(),
                 card.getAuthorUser().getNickname(),
@@ -287,6 +288,7 @@ public class CollectionCardService {
                 card.getDescription(),
                 card.getRecommendedSituation(),
                 card.getDifficulty(),
+                card.getImageUrl(),
                 resolveMessage(collectionCard),
                 toPrimaryEffectResponse(card.getPrimaryEffectType()),
                 collectionCard.getCollectedAt()

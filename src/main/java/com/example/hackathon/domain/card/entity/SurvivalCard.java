@@ -43,6 +43,12 @@ public class SurvivalCard extends BaseTimeEntity {
     @JoinColumn(name = "primary_effect_type_id", nullable = false)
     private EffectType primaryEffectType;
 
+    @Column(name = "image_url", length = 500)
+    private String imageUrl;
+
+    @Column(name = "image_key", length = 500)
+    private String imageKey;
+
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 20)
     private CardStatus status = CardStatus.UNSENT;
@@ -56,7 +62,9 @@ public class SurvivalCard extends BaseTimeEntity {
             String description,
             String recommendedSituation,
             Short difficulty,
-            EffectType primaryEffectType
+            EffectType primaryEffectType,
+            String imageUrl,
+            String imageKey
     ) {
         this.authorUser = authorUser;
         this.title = title;
@@ -64,6 +72,7 @@ public class SurvivalCard extends BaseTimeEntity {
         this.recommendedSituation = recommendedSituation;
         this.difficulty = difficulty;
         this.primaryEffectType = primaryEffectType;
+        updateImage(imageUrl, imageKey);
     }
 
     public void markSent() {
@@ -75,6 +84,20 @@ public class SurvivalCard extends BaseTimeEntity {
 
     public void markDeleted() {
         this.status = CardStatus.DELETED;
+    }
+
+    public void updateImage(String imageUrl, String imageKey) {
+        if (isBlank(imageUrl) || isBlank(imageKey)) {
+            this.imageUrl = null;
+            this.imageKey = null;
+            return;
+        }
+        this.imageUrl = imageUrl.trim();
+        this.imageKey = imageKey.trim();
+    }
+
+    private boolean isBlank(String value) {
+        return value == null || value.isBlank();
     }
 
     public boolean isWrittenBy(Long userId) {
@@ -107,6 +130,14 @@ public class SurvivalCard extends BaseTimeEntity {
 
     public EffectType getPrimaryEffectType() {
         return primaryEffectType;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public String getImageKey() {
+        return imageKey;
     }
 
     public CardStatus getStatus() {

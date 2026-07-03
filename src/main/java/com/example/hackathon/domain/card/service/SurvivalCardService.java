@@ -6,6 +6,8 @@ import com.example.hackathon.domain.card.controller.dto.SurvivalCardDtos.CreateS
 import com.example.hackathon.domain.card.controller.dto.SurvivalCardDtos.EffectRequest;
 import com.example.hackathon.domain.card.controller.dto.SurvivalCardDtos.PrimaryEffectResponse;
 import com.example.hackathon.domain.card.controller.dto.SurvivalCardDtos.SurvivalCardResponse;
+import com.example.hackathon.domain.card.controller.dto.SurvivalCardDtos.UpdateCardImageRequest;
+import com.example.hackathon.domain.card.controller.dto.SurvivalCardDtos.UpdateCardImageResponse;
 import com.example.hackathon.domain.card.entity.CardEffect;
 import com.example.hackathon.domain.card.entity.CardStatus;
 import com.example.hackathon.domain.card.entity.SurvivalCard;
@@ -24,6 +26,7 @@ import com.example.hackathon.domain.user.entity.User;
 import com.example.hackathon.domain.user.service.UserReader;
 import com.example.hackathon.global.exception.BadRequestException;
 import com.example.hackathon.global.exception.ConflictException;
+import com.example.hackathon.global.exception.ForbiddenException;
 import com.example.hackathon.global.exception.NotFoundException;
 import java.time.OffsetDateTime;
 import java.util.HashSet;
@@ -82,7 +85,9 @@ public class SurvivalCardService {
                 request.description().trim(),
                 request.recommendedSituation().trim(),
                 request.difficulty(),
-                primaryEffectType
+                primaryEffectType,
+                request.imageUrl(),
+                request.imageKey()
         ));
 
         List<CardEffect> cardEffects = request.effects()
@@ -133,6 +138,31 @@ public class SurvivalCardService {
             throw new NotFoundException("생존 카드를 찾을 수 없습니다.");
         }
         return toResponse(card);
+    }
+
+    @Transactional
+    public UpdateCardImageResponse updateCardImage(Long userId, Long cardId, UpdateCardImageRequest request) {
+        userReader.getById(userId);
+        SurvivalCard card = survivalCardRepository.findById(cardId)
+                .orElseThrow(() -> new NotFoundException("생존 카드를 찾을 수 없습니다."));
+        if (card.getStatus() == CardStatus.DELETED) {
+            throw new NotFoundException("생존 카드를 찾을 수 없습니다.");
+        }
+        if (!card.isWrittenBy(userId)) {
+            throw new ForbiddenException("내가 만든 카드만 이미지를 변경할 수 있습니다.");
+        }
+
+        if (card.getStatus() != CardStatus.UNSENT) {
+            throw new ConflictException("발송 전 카드만 이미지를 변경할 수 있습니다.");
+        }
+
+        card.updateImage(request.imageUrl(), request.imageKey());
+        return new UpdateCardImageResponse(
+                card.getId(),
+                card.getImageUrl(),
+                card.getImageKey(),
+                "카드 이미지가 변경되었습니다."
+        );
     }
 
     private void validateEffects(CreateSurvivalCardRequest request) {
@@ -225,6 +255,7 @@ public class SurvivalCardService {
                 card.getDescription(),
                 card.getRecommendedSituation(),
                 card.getDifficulty(),
+                card.getImageUrl(),
                 card.getStatus(),
                 toPrimaryEffectResponse(card.getPrimaryEffectType()),
                 toCardEffectResponses(card.getId()),

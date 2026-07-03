@@ -5,6 +5,11 @@ spring:
   application:
     name: kuit-hackathon-2026
 
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 5MB
+
   datasource:
     url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/hackathon_db}
     username: ${SPRING_DATASOURCE_USERNAME:appuser}
@@ -32,3 +37,12 @@ springdoc:
     operations-sorter: method
     tags-sorter: alpha
     display-request-duration: true
+
+app:
+  image:
+    s3:
+      bucket: ${IMAGE_S3_BUCKET:summer-survival-mail-images-1}
+      region: ${IMAGE_S3_REGION:ap-northeast-2}
+      public-base-url: ${IMAGE_S3_PUBLIC_BASE_URL:https://summer-survival-mail-images-1.s3.ap-northeast-2.amazonaws.com}
+      card-prefix: ${IMAGE_S3_CARD_PREFIX:cards}
+      max-size-bytes: ${IMAGE_MAX_SIZE_BYTES:5242880}

@@ -194,6 +194,7 @@ public class FolderService {
                 card.getId(),
                 card.getTitle(),
                 card.getDescription(),
+                card.getImageUrl(),
                 toPrimaryEffectResponse(card.getPrimaryEffectType())
         );
     }

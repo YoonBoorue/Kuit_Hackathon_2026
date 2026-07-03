@@ -5,7 +5,6 @@ import com.example.hackathon.domain.card.controller.dto.SurvivalCardDtos.Primary
 import com.example.hackathon.domain.draw.entity.MysteryDrawStatus;
 import jakarta.validation.constraints.NotNull;
 import java.time.LocalDateTime;
-import java.time.OffsetDateTime;
 import java.util.List;
 
 public final class MysteryDrawDtos {
@@ -48,6 +47,7 @@ public final class MysteryDrawDtos {
             String description,
             String recommendedSituation,
             Short difficulty,
+            String imageUrl,
             String message,
             Long authorUserId,
             String authorNickname,

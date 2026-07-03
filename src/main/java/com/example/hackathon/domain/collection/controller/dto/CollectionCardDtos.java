@@ -23,6 +23,7 @@ public final class CollectionCardDtos {
             String description,
             String recommendedSituation,
             Short difficulty,
+            String imageUrl,
             String message,
             PrimaryEffectResponse primaryEffect,
             OffsetDateTime collectedAt
@@ -39,6 +40,7 @@ public final class CollectionCardDtos {
             String description,
             String recommendedSituation,
             Short difficulty,
+            String imageUrl,
             String message,
             Long authorUserId,
             String authorNickname,

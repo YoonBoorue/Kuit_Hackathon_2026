@@ -58,7 +58,8 @@ public class CardExchangeService {
     private SentCardResponse toSentCardResponse(SurvivalCard card) {
         return new SentCardResponse(
                 card.getId(),
-                card.getTitle()
+                card.getTitle(),
+                card.getImageUrl()
         );
     }
 
@@ -80,6 +81,7 @@ public class CardExchangeService {
                 card.getDescription(),
                 card.getRecommendedSituation(),
                 card.getDifficulty(),
+                card.getImageUrl(),
                 toPrimaryEffectResponse(card.getPrimaryEffectType())
         );
     }

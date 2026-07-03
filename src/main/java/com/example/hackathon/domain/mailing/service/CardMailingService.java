@@ -142,6 +142,7 @@ public class CardMailingService {
         return new CardMailingResponse(
                 mailing.getId(),
                 mailing.getCard().getId(),
+                mailing.getCard().getImageUrl(),
                 mailing.getMessage(),
                 mailing.getStatus(),
                 mailing.getSentAt(),
