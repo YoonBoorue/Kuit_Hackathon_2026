@@ -70,7 +70,7 @@ public class MysteryDrawService {
         List<MysteryDrawOptionResponse> options = mysteryDrawOptionRepository
                 .findAllByMysteryDrawSession_IdOrderByPositionAsc(mysteryDrawId)
                 .stream()
-                .map(this::toOptionResponse)
+                .map(option -> toOptionResponse(session, option))
                 .toList();
 
         return new MysteryDrawResponse(session.getId(), session.getStatus(), options);
@@ -169,7 +169,7 @@ public class MysteryDrawService {
                 .orElseThrow(() -> new NotFoundException("우편을 찾을 수 없습니다."));
     }
 
-    private MysteryDrawOptionResponse toOptionResponse(MysteryDrawOption option) {
+    private MysteryDrawOptionResponse toOptionResponse(MysteryDrawSession session, MysteryDrawOption option) {
         CardMailing mailing = option.getCandidateMailing();
         EffectType primaryEffectType = mailing.getCard().getPrimaryEffectType();
         return new MysteryDrawOptionResponse(
@@ -177,7 +177,7 @@ public class MysteryDrawService {
                 option.getPosition(),
                 primaryEffectType.getColor(),
                 toPrimaryEffectResponse(primaryEffectType),
-                mailing.isWaiting()
+                session.isOpen() && mailing.isWaiting()
         );
     }
 
