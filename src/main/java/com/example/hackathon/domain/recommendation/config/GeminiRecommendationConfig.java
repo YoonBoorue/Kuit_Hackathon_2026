@@ -14,8 +14,8 @@ public class GeminiRecommendationConfig {
     public GeminiRecommendationProperties geminiRecommendationProperties(
             @Value("${app.ai.gemini.api-key:}") String apiKey,
             @Value("${app.ai.gemini.base-url:https://generativelanguage.googleapis.com/v1beta}") String baseUrl,
-            @Value("${app.ai.gemini.model:gemini-2.0-flash}") String model,
-            @Value("${app.ai.gemini.timeout-ms:5000}") long timeoutMs
+            @Value("${app.ai.gemini.model:gemini-3.5-flash}") String model,
+            @Value("${app.ai.gemini.timeout-ms:10000}") long timeoutMs
     ) {
         return new GeminiRecommendationProperties(apiKey, baseUrl, model, timeoutMs);
     }

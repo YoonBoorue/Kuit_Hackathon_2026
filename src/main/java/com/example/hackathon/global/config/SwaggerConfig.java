@@ -55,6 +55,7 @@ public class SwaggerConfig {
                         addErrorResponse(responses, "403", "접근 권한 없음");
                         addErrorResponse(responses, "404", "존재하지 않는 리소스");
                         addErrorResponse(responses, "409", "상태 충돌 또는 중복 요청");
+                        addErrorResponse(responses, "503", "외부 서비스 사용 불가");
                         addErrorResponse(responses, "500", "서버 내부 오류");
                     }));
         };

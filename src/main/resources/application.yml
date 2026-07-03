@@ -44,7 +44,7 @@ app:
       api-key: ${GEMINI_API_KEY:}
       base-url: ${GEMINI_BASE_URL:https://generativelanguage.googleapis.com/v1beta}
       model: ${GEMINI_MODEL:gemini-3.5-flash}
-      timeout-ms: ${GEMINI_TIMEOUT_MS:5000}
+      timeout-ms: ${GEMINI_TIMEOUT_MS:10000}
   image:
     s3:
       bucket: ${IMAGE_S3_BUCKET:summer-survival-mail-images-1}
