@@ -102,7 +102,7 @@ public class MysteryDrawService {
             throw new ConflictException("내가 발송한 우편이 더 이상 교환 대기 상태가 아닙니다.");
         }
         if (!selectedMailing.isWaiting()) {
-            throw new ConflictException("선택한 우편이 더 이상 교환 대기 상태가 아닙니다.");
+            throw new ConflictException("이미 다른 사용자가 선택한 카드입니다. 미스터리 뽑기를 다시 조회해주세요.");
         }
         if (selectedMailing.getSenderUser().getId().equals(userId)) {
             throw new ForbiddenException("내가 보낸 우편은 선택할 수 없습니다.");
