@@ -42,7 +42,7 @@ app:
   ai:
     gemini:
       api-key: ${GEMINI_API_KEY:}
-      base-url: ${GEMINI_BASE_URL:}
+      base-url: ${GEMINI_BASE_URL:https://generativelanguage.googleapis.com/v1beta}
       model: ${GEMINI_MODEL:gemini-2.0-flash}
       timeout-ms: ${GEMINI_TIMEOUT_MS:5000}
   image:

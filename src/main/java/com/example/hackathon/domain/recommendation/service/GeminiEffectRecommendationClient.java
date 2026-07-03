@@ -7,10 +7,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClient;
 import org.springframework.web.client.RestClientException;
+import org.springframework.web.client.RestClientResponseException;
 
 @Component
 public class GeminiEffectRecommendationClient {
@@ -21,6 +24,8 @@ public class GeminiEffectRecommendationClient {
     private static final Pattern JSON_OBJECT_PATTERN = Pattern.compile("\\{[^{}]*}");
     private static final Pattern CODE_PATTERN = Pattern.compile("\"code\"\\s*:\\s*\"([A-Z_]+)\"");
     private static final Pattern SCORE_PATTERN = Pattern.compile("\"(?:score|level)\"\\s*:\\s*(\\d+)");
+    private static final Logger log = LoggerFactory.getLogger(GeminiEffectRecommendationClient.class);
+    private static final int MAX_ERROR_BODY_LOG_LENGTH = 2_000;
 
     private static final String SYSTEM_PROMPT = """
             You are a classifier that recommends effect scores for a summer survival tip card.
@@ -72,9 +77,27 @@ public class GeminiEffectRecommendationClient {
                     .retrieve()
                     .body(MAP_TYPE);
             return parseScores(extractText(response));
+        } catch (RestClientResponseException exception) {
+            log.warn(
+                    "Gemini API returned an error response. status={}, body={}",
+                    exception.getStatusCode(),
+                    truncateErrorBody(exception.getResponseBodyAsString())
+            );
+            throw new ExternalServiceException("AI 효과 추천 서비스를 사용할 수 없습니다.");
         } catch (RestClientException exception) {
+            log.warn("Gemini API request failed before receiving a response.", exception);
             throw new ExternalServiceException("AI 효과 추천 서비스를 사용할 수 없습니다.");
         }
+    }
+
+    private String truncateErrorBody(String body) {
+        if (body == null || body.isBlank()) {
+            return "";
+        }
+        if (body.length() <= MAX_ERROR_BODY_LOG_LENGTH) {
+            return body;
+        }
+        return body.substring(0, MAX_ERROR_BODY_LOG_LENGTH) + "...";
     }
 
     private Map<String, Object> buildRequest(String title, String description) {
