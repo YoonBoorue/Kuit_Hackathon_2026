@@ -5,6 +5,7 @@ import com.example.hackathon.domain.user.dto.UserDtos.UserResponse;
 import com.example.hackathon.domain.user.service.UserService;
 import com.example.hackathon.global.exception.ErrorResponse;
 import com.example.hackathon.global.exception.GlobalExceptionHandler;
+import jakarta.servlet.http.HttpServletRequest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,6 +13,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 @SpringBootTest
 class HackathonApplicationTests {
@@ -43,6 +46,23 @@ class HackathonApplicationTests {
         assertThat(response.getStatusCode().value()).isEqualTo(400);
         assertThat(response.getBody()).isNotNull();
         assertThat(response.getBody().status()).isEqualTo(400);
+    }
+
+    @Test
+    void unexpectedExceptionReturnsInternalServerError() {
+        HttpServletRequest request = mock(HttpServletRequest.class);
+        when(request.getMethod()).thenReturn("GET");
+        when(request.getRequestURI()).thenReturn("/api/folders");
+        when(request.getHeader("X-USER-ID")).thenReturn("8");
+
+        ResponseEntity<ErrorResponse> response = globalExceptionHandler.handleUnexpected(
+                new RuntimeException("test exception"),
+                request
+        );
+
+        assertThat(response.getStatusCode().value()).isEqualTo(500);
+        assertThat(response.getBody()).isNotNull();
+        assertThat(response.getBody().status()).isEqualTo(500);
     }
 
 }
