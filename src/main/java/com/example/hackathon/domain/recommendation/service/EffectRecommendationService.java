@@ -50,8 +50,12 @@ public class EffectRecommendationService {
 
         String title = request.title().trim();
         String description = request.description().trim();
-        Map<String, Integer> geminiScores = geminiClient.recommendScores(title, description);
-        Map<String, Short> normalizedScores = normalizeScores(geminiScores, title + " " + description);
+        String recommendedSituation = request.recommendedSituation().trim();
+        Map<String, Integer> geminiScores = geminiClient.recommendScores(title, description, recommendedSituation);
+        Map<String, Short> normalizedScores = normalizeScores(
+                geminiScores,
+                title + " " + description + " " + recommendedSituation
+        );
 
         List<RecommendedEffectResponse> recommendedEffects = effectTypes.stream()
                 .sorted(recommendationComparator(normalizedScores))

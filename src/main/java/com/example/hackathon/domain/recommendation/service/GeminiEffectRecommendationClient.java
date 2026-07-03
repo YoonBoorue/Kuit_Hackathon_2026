@@ -35,7 +35,7 @@ public class GeminiEffectRecommendationClient {
             """;
 
     private static final String USER_PROMPT_TEMPLATE = """
-            Recommend scores for all 5 effect categories from the survival tip title and description.
+            Recommend scores for all 5 effect categories from the survival tip title, description, and recommended situation.
 
             Categories:
             - COOLING: relief from heat, cooling, lowering body temperature
@@ -49,6 +49,7 @@ public class GeminiEffectRecommendationClient {
 
             Title: %s
             Description: %s
+            Recommended situation: %s
             """;
 
     private final RestClient geminiRestClient;
@@ -62,7 +63,7 @@ public class GeminiEffectRecommendationClient {
         this.properties = properties;
     }
 
-    public Map<String, Integer> recommendScores(String title, String description) {
+    public Map<String, Integer> recommendScores(String title, String description, String recommendedSituation) {
         if (!properties.hasApiKey()) {
             throw new ExternalServiceException("Gemini API key가 설정되지 않았습니다.");
         }
@@ -73,7 +74,7 @@ public class GeminiEffectRecommendationClient {
                             .path("/models/{model}:generateContent")
                             .queryParam("key", properties.getApiKey())
                             .build(properties.getModel()))
-                    .body(buildRequest(title, description))
+                    .body(buildRequest(title, description, recommendedSituation))
                     .retrieve()
                     .body(MAP_TYPE);
             return parseScores(extractText(response));
@@ -100,21 +101,21 @@ public class GeminiEffectRecommendationClient {
         return body.substring(0, MAX_ERROR_BODY_LOG_LENGTH) + "...";
     }
 
-    private Map<String, Object> buildRequest(String title, String description) {
+    private Map<String, Object> buildRequest(String title, String description, String recommendedSituation) {
         return Map.of(
                 "systemInstruction", Map.of(
                         "parts", List.of(Map.of("text", SYSTEM_PROMPT))),
                 "contents", List.of(Map.of(
                         "role", "user",
-                        "parts", List.of(Map.of("text", buildPrompt(title, description))))),
+                        "parts", List.of(Map.of("text", buildPrompt(title, description, recommendedSituation))))),
                 "generationConfig", Map.of(
                         "temperature", 0.2,
                         "responseMimeType", "application/json")
         );
     }
 
-    private String buildPrompt(String title, String description) {
-        return USER_PROMPT_TEMPLATE.formatted(title, description);
+    private String buildPrompt(String title, String description, String recommendedSituation) {
+        return USER_PROMPT_TEMPLATE.formatted(title, description, recommendedSituation);
     }
 
     private String extractText(Map<String, Object> response) {

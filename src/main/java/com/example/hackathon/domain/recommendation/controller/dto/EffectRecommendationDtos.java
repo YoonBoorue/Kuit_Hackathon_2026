@@ -16,7 +16,11 @@ public final class EffectRecommendationDtos {
 
             @NotBlank(message = "생존법 설명은 필수입니다.")
             @Size(max = 100, message = "생존법 설명은 100자 이하여야 합니다.")
-            String description
+            String description,
+
+            @NotBlank(message = "생존 추천 상황은 필수입니다.")
+            @Size(max = 20, message = "생존 추천 상황은 20자 이하여야 합니다.")
+            String recommendedSituation
     ) {
     }
 

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@Tag(name = "AI 효과 추천", description = "생존법 제목과 설명을 기반으로 Gemini가 카드 효과를 임시 추천하는 API")
+@Tag(name = "AI 효과 추천", description = "생존법 제목, 설명, 추천 상황을 기반으로 Gemini가 카드 효과를 임시 추천하는 API")
 @RestController
 @RequestMapping("/api/effect-recommendations")
 public class EffectRecommendationController {
@@ -26,7 +26,7 @@ public class EffectRecommendationController {
 
     @Operation(
             summary = "카드 효과 AI 추천",
-            description = "카드 저장 없이 제목과 설명만으로 효과 1~3개와 level을 추천합니다. 사용자는 추천 결과를 수정한 뒤 기존 카드 저장 API를 호출합니다."
+            description = "카드 저장 없이 제목, 설명, 추천 상황으로 효과 1~3개와 level을 추천합니다. 사용자는 추천 결과를 수정한 뒤 기존 카드 저장 API를 호출합니다."
     )
     @PostMapping
     public RecommendEffectsResponse recommendEffects(
