@@ -80,14 +80,14 @@ public class GeminiEffectRecommendationClient {
             return parseScores(extractText(response));
         } catch (RestClientResponseException exception) {
             log.warn(
-                    "Gemini API returned an error response. status={}, body={}",
+                    "Gemini API returned an error response. Falling back to default scores. status={}, body={}",
                     exception.getStatusCode(),
                     truncateErrorBody(exception.getResponseBodyAsString())
             );
-            throw new ExternalServiceException("AI 효과 추천 서비스를 사용할 수 없습니다.");
+            return Map.of();
         } catch (RestClientException exception) {
-            log.warn("Gemini API request failed before receiving a response.", exception);
-            throw new ExternalServiceException("AI 효과 추천 서비스를 사용할 수 없습니다.");
+            log.warn("Gemini API request failed before receiving a response. Falling back to default scores.", exception);
+            return Map.of();
         }
     }
 
