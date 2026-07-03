@@ -39,6 +39,12 @@ springdoc:
     display-request-duration: true
 
 app:
+  ai:
+    gemini:
+      api-key: ${GEMINI_API_KEY:}
+      base-url: ${GEMINI_BASE_URL:}
+      model: ${GEMINI_MODEL:gemini-2.0-flash}
+      timeout-ms: ${GEMINI_TIMEOUT_MS:5000}
   image:
     s3:
       bucket: ${IMAGE_S3_BUCKET:summer-survival-mail-images-1}
