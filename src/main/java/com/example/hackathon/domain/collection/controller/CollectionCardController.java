@@ -1,13 +1,13 @@
 package com.example.hackathon.domain.collection.controller;
 
-import com.example.hackathon.domain.collection.controller.dto.CollectionCardDtos.CollectionCardDetailResponse;
-import com.example.hackathon.domain.collection.controller.dto.CollectionCardDtos.CollectionCardFolderResponse;
-import com.example.hackathon.domain.collection.controller.dto.CollectionCardDtos.CollectionCardSummaryResponse;
-import com.example.hackathon.domain.collection.controller.dto.CollectionCardDtos.FavoriteRequest;
-import com.example.hackathon.domain.collection.controller.dto.CollectionCardDtos.FavoriteResponse;
-import com.example.hackathon.domain.collection.controller.dto.CollectionCardDtos.MemoRequest;
-import com.example.hackathon.domain.collection.controller.dto.CollectionCardDtos.MemoResponse;
-import com.example.hackathon.domain.collection.controller.dto.CollectionCardDtos.UpdateCollectionCardFolderRequest;
+import com.example.hackathon.domain.collection.dto.CollectionCardDtos.CollectionCardDetailResponse;
+import com.example.hackathon.domain.collection.dto.CollectionCardDtos.CollectionCardFolderResponse;
+import com.example.hackathon.domain.collection.dto.CollectionCardDtos.CollectionCardSummaryResponse;
+import com.example.hackathon.domain.collection.dto.CollectionCardDtos.FavoriteRequest;
+import com.example.hackathon.domain.collection.dto.CollectionCardDtos.FavoriteResponse;
+import com.example.hackathon.domain.collection.dto.CollectionCardDtos.MemoRequest;
+import com.example.hackathon.domain.collection.dto.CollectionCardDtos.MemoResponse;
+import com.example.hackathon.domain.collection.dto.CollectionCardDtos.UpdateCollectionCardFolderRequest;
 import com.example.hackathon.domain.collection.entity.CollectionSource;
 import com.example.hackathon.domain.collection.service.CollectionCardService;
 import com.example.hackathon.global.dto.MessageResponse;

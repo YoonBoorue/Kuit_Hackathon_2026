@@ -1,10 +1,10 @@
 package com.example.hackathon.domain.card.controller;
 
-import com.example.hackathon.domain.card.controller.dto.SurvivalCardDtos.CreateSurvivalCardRequest;
-import com.example.hackathon.domain.card.controller.dto.SurvivalCardDtos.CreateSurvivalCardResponse;
-import com.example.hackathon.domain.card.controller.dto.SurvivalCardDtos.SurvivalCardResponse;
-import com.example.hackathon.domain.card.controller.dto.SurvivalCardDtos.UpdateCardImageRequest;
-import com.example.hackathon.domain.card.controller.dto.SurvivalCardDtos.UpdateCardImageResponse;
+import com.example.hackathon.domain.card.dto.SurvivalCardDtos.CreateSurvivalCardRequest;
+import com.example.hackathon.domain.card.dto.SurvivalCardDtos.CreateSurvivalCardResponse;
+import com.example.hackathon.domain.card.dto.SurvivalCardDtos.SurvivalCardResponse;
+import com.example.hackathon.domain.card.dto.SurvivalCardDtos.UpdateCardImageRequest;
+import com.example.hackathon.domain.card.dto.SurvivalCardDtos.UpdateCardImageResponse;
 import com.example.hackathon.domain.card.entity.CardStatus;
 import com.example.hackathon.domain.card.service.SurvivalCardService;
 import io.swagger.v3.oas.annotations.Operation;

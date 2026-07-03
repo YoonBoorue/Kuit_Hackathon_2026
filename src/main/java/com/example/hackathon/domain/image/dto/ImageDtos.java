@@ -1,4 +1,4 @@
-package com.example.hackathon.domain.image.controller.dto;
+package com.example.hackathon.domain.image.dto;
 
 public final class ImageDtos {
 

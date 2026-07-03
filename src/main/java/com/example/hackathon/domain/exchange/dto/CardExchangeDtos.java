@@ -1,6 +1,6 @@
-package com.example.hackathon.domain.exchange.controller.dto;
+package com.example.hackathon.domain.exchange.dto;
 
-import com.example.hackathon.domain.card.controller.dto.SurvivalCardDtos.PrimaryEffectResponse;
+import com.example.hackathon.domain.common.dto.CardDtos.PrimaryEffectResponse;
 import java.time.OffsetDateTime;
 
 public final class CardExchangeDtos {

@@ -1,6 +1,6 @@
 package com.example.hackathon.domain.image.controller;
 
-import com.example.hackathon.domain.image.controller.dto.ImageDtos.ImageUploadResponse;
+import com.example.hackathon.domain.image.dto.ImageDtos.ImageUploadResponse;
 import com.example.hackathon.domain.image.service.ImageUploadService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;

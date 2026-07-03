@@ -1,8 +1,8 @@
 package com.example.hackathon.domain.mailing.controller;
 
-import com.example.hackathon.domain.mailing.controller.dto.CardMailingDtos.CardMailingCreateResponse;
-import com.example.hackathon.domain.mailing.controller.dto.CardMailingDtos.CardMailingResponse;
-import com.example.hackathon.domain.mailing.controller.dto.CardMailingDtos.CreateCardMailingRequest;
+import com.example.hackathon.domain.mailing.dto.CardMailingDtos.CardMailingCreateResponse;
+import com.example.hackathon.domain.mailing.dto.CardMailingDtos.CardMailingResponse;
+import com.example.hackathon.domain.mailing.dto.CardMailingDtos.CreateCardMailingRequest;
 import com.example.hackathon.domain.mailing.entity.MailingStatus;
 import com.example.hackathon.domain.mailing.service.CardMailingService;
 import io.swagger.v3.oas.annotations.Operation;

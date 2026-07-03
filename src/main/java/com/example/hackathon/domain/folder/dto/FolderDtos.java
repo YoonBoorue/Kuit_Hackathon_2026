@@ -1,6 +1,6 @@
-package com.example.hackathon.domain.folder.controller.dto;
+package com.example.hackathon.domain.folder.dto;
 
-import com.example.hackathon.domain.card.controller.dto.SurvivalCardDtos.PrimaryEffectResponse;
+import com.example.hackathon.domain.common.dto.CardDtos.PrimaryEffectResponse;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;

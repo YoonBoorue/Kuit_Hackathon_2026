@@ -1,6 +1,6 @@
 package com.example.hackathon.domain.exchange.controller;
 
-import com.example.hackathon.domain.exchange.controller.dto.CardExchangeDtos.CardExchangeResponse;
+import com.example.hackathon.domain.exchange.dto.CardExchangeDtos.CardExchangeResponse;
 import com.example.hackathon.domain.exchange.service.CardExchangeService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;

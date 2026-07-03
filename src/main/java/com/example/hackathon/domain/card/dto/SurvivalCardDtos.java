@@ -1,6 +1,8 @@
-package com.example.hackathon.domain.card.controller.dto;
+package com.example.hackathon.domain.card.dto;
 
 import com.example.hackathon.domain.card.entity.CardStatus;
+import com.example.hackathon.domain.common.dto.CardDtos.CardEffectResponse;
+import com.example.hackathon.domain.common.dto.CardDtos.PrimaryEffectResponse;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
@@ -98,21 +100,6 @@ public final class SurvivalCardDtos {
             String imageUrl,
             String imageKey,
             String message
-    ) {
-    }
-
-    public record PrimaryEffectResponse(
-            Long effectTypeId,
-            String name,
-            String color,
-            String icon
-    ) {
-    }
-
-    public record CardEffectResponse(
-            Long effectTypeId,
-            String name,
-            Short level
     ) {
     }
 

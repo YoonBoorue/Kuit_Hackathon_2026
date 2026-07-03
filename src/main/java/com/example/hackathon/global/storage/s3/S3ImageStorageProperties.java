@@ -1,4 +1,4 @@
-package com.example.hackathon.domain.image.config;
+package com.example.hackathon.global.storage.s3;
 
 public class S3ImageStorageProperties {
 

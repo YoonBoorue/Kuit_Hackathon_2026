@@ -1,7 +1,7 @@
 package com.example.hackathon.domain.recommendation.controller;
 
-import com.example.hackathon.domain.recommendation.controller.dto.EffectRecommendationDtos.RecommendEffectsRequest;
-import com.example.hackathon.domain.recommendation.controller.dto.EffectRecommendationDtos.RecommendEffectsResponse;
+import com.example.hackathon.domain.recommendation.dto.EffectRecommendationDtos.RecommendEffectsRequest;
+import com.example.hackathon.domain.recommendation.dto.EffectRecommendationDtos.RecommendEffectsResponse;
 import com.example.hackathon.domain.recommendation.service.EffectRecommendationService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;

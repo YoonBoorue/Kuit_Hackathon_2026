@@ -1,8 +1,8 @@
 package com.example.hackathon.domain.draw.controller;
 
-import com.example.hackathon.domain.draw.controller.dto.MysteryDrawDtos.MysteryDrawResponse;
-import com.example.hackathon.domain.draw.controller.dto.MysteryDrawDtos.SelectMysteryDrawRequest;
-import com.example.hackathon.domain.draw.controller.dto.MysteryDrawDtos.SelectMysteryDrawResponse;
+import com.example.hackathon.domain.draw.dto.MysteryDrawDtos.MysteryDrawResponse;
+import com.example.hackathon.domain.draw.dto.MysteryDrawDtos.SelectMysteryDrawRequest;
+import com.example.hackathon.domain.draw.dto.MysteryDrawDtos.SelectMysteryDrawResponse;
 import com.example.hackathon.domain.draw.service.MysteryDrawService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;

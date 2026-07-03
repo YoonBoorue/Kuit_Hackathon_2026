@@ -1,16 +1,16 @@
 package com.example.hackathon.domain.folder.service;
 
-import com.example.hackathon.domain.card.controller.dto.SurvivalCardDtos.PrimaryEffectResponse;
+import com.example.hackathon.domain.common.dto.CardDtos.PrimaryEffectResponse;
 import com.example.hackathon.domain.card.entity.SurvivalCard;
 import com.example.hackathon.domain.collection.entity.CollectionCard;
 import com.example.hackathon.domain.collection.repository.CollectionCardRepository;
 import com.example.hackathon.domain.effect.entity.EffectType;
-import com.example.hackathon.domain.folder.controller.dto.FolderDtos.AddFolderCardRequest;
-import com.example.hackathon.domain.folder.controller.dto.FolderDtos.CreateFolderRequest;
-import com.example.hackathon.domain.folder.controller.dto.FolderDtos.FolderCardActionResponse;
-import com.example.hackathon.domain.folder.controller.dto.FolderDtos.FolderCardSummaryResponse;
-import com.example.hackathon.domain.folder.controller.dto.FolderDtos.FolderResponse;
-import com.example.hackathon.domain.folder.controller.dto.FolderDtos.UpdateFolderRequest;
+import com.example.hackathon.domain.folder.dto.FolderDtos.AddFolderCardRequest;
+import com.example.hackathon.domain.folder.dto.FolderDtos.CreateFolderRequest;
+import com.example.hackathon.domain.folder.dto.FolderDtos.FolderCardActionResponse;
+import com.example.hackathon.domain.folder.dto.FolderDtos.FolderCardSummaryResponse;
+import com.example.hackathon.domain.folder.dto.FolderDtos.FolderResponse;
+import com.example.hackathon.domain.folder.dto.FolderDtos.UpdateFolderRequest;
 import com.example.hackathon.domain.folder.entity.Folder;
 import com.example.hackathon.domain.folder.entity.FolderCard;
 import com.example.hackathon.domain.folder.repository.FolderCardRepository;

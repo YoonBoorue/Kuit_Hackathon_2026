@@ -1,18 +1,18 @@
 package com.example.hackathon.domain.draw.service;
 
-import com.example.hackathon.domain.card.controller.dto.SurvivalCardDtos.CardEffectResponse;
-import com.example.hackathon.domain.card.controller.dto.SurvivalCardDtos.PrimaryEffectResponse;
+import com.example.hackathon.domain.common.dto.CardDtos.CardEffectResponse;
+import com.example.hackathon.domain.common.dto.CardDtos.PrimaryEffectResponse;
 import com.example.hackathon.domain.card.entity.CardEffect;
 import com.example.hackathon.domain.card.entity.SurvivalCard;
 import com.example.hackathon.domain.card.repository.CardEffectRepository;
 import com.example.hackathon.domain.collection.entity.CollectionCard;
 import com.example.hackathon.domain.collection.entity.CollectionSource;
 import com.example.hackathon.domain.collection.repository.CollectionCardRepository;
-import com.example.hackathon.domain.draw.controller.dto.MysteryDrawDtos.MysteryDrawOptionResponse;
-import com.example.hackathon.domain.draw.controller.dto.MysteryDrawDtos.MysteryDrawResponse;
-import com.example.hackathon.domain.draw.controller.dto.MysteryDrawDtos.ReceivedCardResponse;
-import com.example.hackathon.domain.draw.controller.dto.MysteryDrawDtos.SelectMysteryDrawRequest;
-import com.example.hackathon.domain.draw.controller.dto.MysteryDrawDtos.SelectMysteryDrawResponse;
+import com.example.hackathon.domain.draw.dto.MysteryDrawDtos.MysteryDrawOptionResponse;
+import com.example.hackathon.domain.draw.dto.MysteryDrawDtos.MysteryDrawResponse;
+import com.example.hackathon.domain.draw.dto.MysteryDrawDtos.ReceivedCardResponse;
+import com.example.hackathon.domain.draw.dto.MysteryDrawDtos.SelectMysteryDrawRequest;
+import com.example.hackathon.domain.draw.dto.MysteryDrawDtos.SelectMysteryDrawResponse;
 import com.example.hackathon.domain.draw.entity.MysteryDrawOption;
 import com.example.hackathon.domain.draw.entity.MysteryDrawSession;
 import com.example.hackathon.domain.draw.repository.MysteryDrawOptionRepository;

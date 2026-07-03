@@ -2,10 +2,10 @@ package com.example.hackathon.domain.recommendation.service;
 
 import com.example.hackathon.domain.effect.entity.EffectType;
 import com.example.hackathon.domain.effect.repository.EffectTypeRepository;
-import com.example.hackathon.domain.recommendation.controller.dto.EffectRecommendationDtos.EffectScoreResponse;
-import com.example.hackathon.domain.recommendation.controller.dto.EffectRecommendationDtos.RecommendEffectsRequest;
-import com.example.hackathon.domain.recommendation.controller.dto.EffectRecommendationDtos.RecommendEffectsResponse;
-import com.example.hackathon.domain.recommendation.controller.dto.EffectRecommendationDtos.RecommendedEffectResponse;
+import com.example.hackathon.domain.recommendation.dto.EffectRecommendationDtos.EffectScoreResponse;
+import com.example.hackathon.domain.recommendation.dto.EffectRecommendationDtos.RecommendEffectsRequest;
+import com.example.hackathon.domain.recommendation.dto.EffectRecommendationDtos.RecommendEffectsResponse;
+import com.example.hackathon.domain.recommendation.dto.EffectRecommendationDtos.RecommendedEffectResponse;
 import com.example.hackathon.domain.user.service.UserReader;
 import com.example.hackathon.global.exception.ConflictException;
 import java.util.Comparator;

@@ -1,4 +1,4 @@
-package com.example.hackathon.domain.mailing.controller.dto;
+package com.example.hackathon.domain.mailing.dto;
 
 import com.example.hackathon.domain.mailing.entity.MailingStatus;
 import jakarta.validation.constraints.NotNull;

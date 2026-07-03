@@ -1,7 +1,7 @@
-package com.example.hackathon.domain.draw.controller.dto;
+package com.example.hackathon.domain.draw.dto;
 
-import com.example.hackathon.domain.card.controller.dto.SurvivalCardDtos.CardEffectResponse;
-import com.example.hackathon.domain.card.controller.dto.SurvivalCardDtos.PrimaryEffectResponse;
+import com.example.hackathon.domain.common.dto.CardDtos.CardEffectResponse;
+import com.example.hackathon.domain.common.dto.CardDtos.PrimaryEffectResponse;
 import com.example.hackathon.domain.draw.entity.MysteryDrawStatus;
 import jakarta.validation.constraints.NotNull;
 import java.time.LocalDateTime;

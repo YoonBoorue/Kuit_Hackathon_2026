@@ -1,13 +1,13 @@
 package com.example.hackathon.domain.card.service;
 
-import com.example.hackathon.domain.card.controller.dto.SurvivalCardDtos.CardEffectResponse;
-import com.example.hackathon.domain.card.controller.dto.SurvivalCardDtos.CreateSurvivalCardRequest;
-import com.example.hackathon.domain.card.controller.dto.SurvivalCardDtos.CreateSurvivalCardResponse;
-import com.example.hackathon.domain.card.controller.dto.SurvivalCardDtos.EffectRequest;
-import com.example.hackathon.domain.card.controller.dto.SurvivalCardDtos.PrimaryEffectResponse;
-import com.example.hackathon.domain.card.controller.dto.SurvivalCardDtos.SurvivalCardResponse;
-import com.example.hackathon.domain.card.controller.dto.SurvivalCardDtos.UpdateCardImageRequest;
-import com.example.hackathon.domain.card.controller.dto.SurvivalCardDtos.UpdateCardImageResponse;
+import com.example.hackathon.domain.common.dto.CardDtos.CardEffectResponse;
+import com.example.hackathon.domain.card.dto.SurvivalCardDtos.CreateSurvivalCardRequest;
+import com.example.hackathon.domain.card.dto.SurvivalCardDtos.CreateSurvivalCardResponse;
+import com.example.hackathon.domain.card.dto.SurvivalCardDtos.EffectRequest;
+import com.example.hackathon.domain.common.dto.CardDtos.PrimaryEffectResponse;
+import com.example.hackathon.domain.card.dto.SurvivalCardDtos.SurvivalCardResponse;
+import com.example.hackathon.domain.card.dto.SurvivalCardDtos.UpdateCardImageRequest;
+import com.example.hackathon.domain.card.dto.SurvivalCardDtos.UpdateCardImageResponse;
 import com.example.hackathon.domain.card.entity.CardEffect;
 import com.example.hackathon.domain.card.entity.CardStatus;
 import com.example.hackathon.domain.card.entity.SurvivalCard;

@@ -1,6 +1,6 @@
 package com.example.hackathon.domain.effect.service;
 
-import com.example.hackathon.domain.effect.controller.dto.EffectTypeDtos.EffectTypeResponse;
+import com.example.hackathon.domain.effect.dto.EffectTypeDtos.EffectTypeResponse;
 import com.example.hackathon.domain.effect.entity.EffectType;
 import com.example.hackathon.domain.effect.repository.EffectTypeRepository;
 import java.util.List;

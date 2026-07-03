@@ -1,7 +1,7 @@
 package com.example.hackathon.domain.image.service;
 
-import com.example.hackathon.domain.image.config.S3ImageStorageProperties;
-import com.example.hackathon.domain.image.controller.dto.ImageDtos.ImageUploadResponse;
+import com.example.hackathon.global.storage.s3.S3ImageStorageProperties;
+import com.example.hackathon.domain.image.dto.ImageDtos.ImageUploadResponse;
 import com.example.hackathon.domain.user.service.UserReader;
 import com.example.hackathon.global.exception.BadRequestException;
 import java.io.IOException;

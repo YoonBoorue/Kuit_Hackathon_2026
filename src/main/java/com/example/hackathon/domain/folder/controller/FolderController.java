@@ -1,11 +1,11 @@
 package com.example.hackathon.domain.folder.controller;
 
-import com.example.hackathon.domain.folder.controller.dto.FolderDtos.AddFolderCardRequest;
-import com.example.hackathon.domain.folder.controller.dto.FolderDtos.CreateFolderRequest;
-import com.example.hackathon.domain.folder.controller.dto.FolderDtos.FolderCardActionResponse;
-import com.example.hackathon.domain.folder.controller.dto.FolderDtos.FolderCardSummaryResponse;
-import com.example.hackathon.domain.folder.controller.dto.FolderDtos.FolderResponse;
-import com.example.hackathon.domain.folder.controller.dto.FolderDtos.UpdateFolderRequest;
+import com.example.hackathon.domain.folder.dto.FolderDtos.AddFolderCardRequest;
+import com.example.hackathon.domain.folder.dto.FolderDtos.CreateFolderRequest;
+import com.example.hackathon.domain.folder.dto.FolderDtos.FolderCardActionResponse;
+import com.example.hackathon.domain.folder.dto.FolderDtos.FolderCardSummaryResponse;
+import com.example.hackathon.domain.folder.dto.FolderDtos.FolderResponse;
+import com.example.hackathon.domain.folder.dto.FolderDtos.UpdateFolderRequest;
 import com.example.hackathon.domain.folder.service.FolderService;
 import com.example.hackathon.global.dto.MessageResponse;
 import io.swagger.v3.oas.annotations.Operation;

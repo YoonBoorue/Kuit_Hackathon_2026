@@ -1,14 +1,14 @@
 package com.example.hackathon.domain.exchange.service;
 
-import com.example.hackathon.domain.card.controller.dto.SurvivalCardDtos.PrimaryEffectResponse;
+import com.example.hackathon.domain.common.dto.CardDtos.PrimaryEffectResponse;
 import com.example.hackathon.domain.card.entity.SurvivalCard;
 import com.example.hackathon.domain.collection.entity.CollectionCard;
 import com.example.hackathon.domain.collection.entity.CollectionSource;
 import com.example.hackathon.domain.collection.repository.CollectionCardRepository;
 import com.example.hackathon.domain.effect.entity.EffectType;
-import com.example.hackathon.domain.exchange.controller.dto.CardExchangeDtos.ReceivedCardResponse;
-import com.example.hackathon.domain.exchange.controller.dto.CardExchangeDtos.CardExchangeResponse;
-import com.example.hackathon.domain.exchange.controller.dto.CardExchangeDtos.SentCardResponse;
+import com.example.hackathon.domain.exchange.dto.CardExchangeDtos.ReceivedCardResponse;
+import com.example.hackathon.domain.exchange.dto.CardExchangeDtos.CardExchangeResponse;
+import com.example.hackathon.domain.exchange.dto.CardExchangeDtos.SentCardResponse;
 import com.example.hackathon.domain.exchange.entity.CardExchange;
 import com.example.hackathon.domain.exchange.repository.CardExchangeRepository;
 import com.example.hackathon.domain.user.service.UserReader;

@@ -1,6 +1,6 @@
 package com.example.hackathon.domain.effect.controller;
 
-import com.example.hackathon.domain.effect.controller.dto.EffectTypeDtos.EffectTypeResponse;
+import com.example.hackathon.domain.effect.dto.EffectTypeDtos.EffectTypeResponse;
 import com.example.hackathon.domain.effect.service.EffectTypeService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

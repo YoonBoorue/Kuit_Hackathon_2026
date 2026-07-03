@@ -1,7 +1,7 @@
 package com.example.hackathon;
 
-import com.example.hackathon.domain.user.controller.dto.UserDtos.CreateUserRequest;
-import com.example.hackathon.domain.user.controller.dto.UserDtos.UserResponse;
+import com.example.hackathon.domain.user.dto.UserDtos.CreateUserRequest;
+import com.example.hackathon.domain.user.dto.UserDtos.UserResponse;
 import com.example.hackathon.domain.user.service.UserService;
 import com.example.hackathon.global.exception.ErrorResponse;
 import com.example.hackathon.global.exception.GlobalExceptionHandler;

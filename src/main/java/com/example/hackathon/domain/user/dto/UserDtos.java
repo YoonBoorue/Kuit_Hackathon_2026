@@ -1,4 +1,4 @@
-package com.example.hackathon.domain.user.controller.dto;
+package com.example.hackathon.domain.user.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;

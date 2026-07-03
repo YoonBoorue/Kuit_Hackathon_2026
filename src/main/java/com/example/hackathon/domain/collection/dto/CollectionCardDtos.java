@@ -1,7 +1,7 @@
-package com.example.hackathon.domain.collection.controller.dto;
+package com.example.hackathon.domain.collection.dto;
 
-import com.example.hackathon.domain.card.controller.dto.SurvivalCardDtos.CardEffectResponse;
-import com.example.hackathon.domain.card.controller.dto.SurvivalCardDtos.PrimaryEffectResponse;
+import com.example.hackathon.domain.common.dto.CardDtos.CardEffectResponse;
+import com.example.hackathon.domain.common.dto.CardDtos.PrimaryEffectResponse;
 import com.example.hackathon.domain.collection.entity.CollectionSource;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;

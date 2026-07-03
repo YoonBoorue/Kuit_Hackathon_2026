@@ -1,4 +1,4 @@
-package com.example.hackathon.domain.effect.controller.dto;
+package com.example.hackathon.domain.effect.dto;
 
 public final class EffectTypeDtos {
 

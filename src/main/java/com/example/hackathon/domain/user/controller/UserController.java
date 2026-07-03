@@ -1,9 +1,9 @@
 package com.example.hackathon.domain.user.controller;
 
-import com.example.hackathon.domain.user.controller.dto.UserDtos.CreateUserRequest;
-import com.example.hackathon.domain.user.controller.dto.UserDtos.NicknameCheckResponse;
-import com.example.hackathon.domain.user.controller.dto.UserDtos.UserHomeResponse;
-import com.example.hackathon.domain.user.controller.dto.UserDtos.UserResponse;
+import com.example.hackathon.domain.user.dto.UserDtos.CreateUserRequest;
+import com.example.hackathon.domain.user.dto.UserDtos.NicknameCheckResponse;
+import com.example.hackathon.domain.user.dto.UserDtos.UserHomeResponse;
+import com.example.hackathon.domain.user.dto.UserDtos.UserResponse;
 import com.example.hackathon.domain.user.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
